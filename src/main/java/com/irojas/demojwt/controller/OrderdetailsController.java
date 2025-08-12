@@ -1,0 +1,20 @@
+package com.irojas.demojwt.controller;
+
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.stereotype.Controller;
+
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author Micuenta oficial：Richard Sivila
+ * @since 2025-07-30
+ */
+@Controller
+@RequestMapping("/orderdetails")
+public class OrderdetailsController {
+
+}

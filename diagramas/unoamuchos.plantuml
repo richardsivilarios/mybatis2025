@@ -1,0 +1,14 @@
+@startuml unoamuchos
+class Departamento {
+  + Integer id
+  + String nombre
+}
+
+class Empleado {
+  + Integer id
+  + String nombre
+  + String puesto
+}
+
+Departamento "1" -- "*" Empleado
+@enduml

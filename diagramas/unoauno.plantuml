@@ -1,0 +1,15 @@
+@startuml unoauno
+class Persona {
+  + Long id
+  + String nombre
+  + String dni
+}
+
+class Pasaporte {
+  + Long id
+  + String numero
+  + String paisEmision
+}
+
+Persona "1" -- "1" Pasaporte
+@enduml

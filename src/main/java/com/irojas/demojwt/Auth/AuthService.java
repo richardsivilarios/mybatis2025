@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.irojas.demojwt.Jwt.JwtService;
 import com.irojas.demojwt.User.Role;
-import com.irojas.demojwt.User.User;
-import com.irojas.demojwt.User.UserRepository;
+import com.irojas.demojwt.User.Usuario;
+import com.irojas.demojwt.User.UsuarioRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,37 +17,39 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final UserRepository userRepository;
-    private final JwtService jwtService;
-    private final PasswordEncoder passwordEncoder;
-    private final AuthenticationManager authenticationManager;
+        private final UsuarioRepository userRepository;
+        private final JwtService jwtService;
+        private final PasswordEncoder passwordEncoder;
+        private final AuthenticationManager authenticationManager;
 
-    public AuthResponse login(LoginRequest request) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-        UserDetails user=userRepository.findByUsername(request.getUsername()).orElseThrow();
-        String token=jwtService.getToken(user);
-        return AuthResponse.builder()
-            .token(token)
-            .build();
+        public AuthResponse login(LoginRequest request) {
+                authenticationManager
+                                .authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(),
+                                                request.getPassword()));
+                UserDetails user = userRepository.findByUsername(request.getUsername()).orElseThrow();
+                String token = jwtService.getToken(user);
+                return AuthResponse.builder()
+                                .token(token)
+                                .build();
 
-    }
+        }
 
-    public AuthResponse register(RegisterRequest request) {
-        User user = User.builder()
-            .username(request.getUsername())
-            .password(passwordEncoder.encode( request.getPassword()))
-            .firstname(request.getFirstname())
-            .lastname(request.lastname)
-            .country(request.getCountry())
-            .role(Role.USER)
-            .build();
+        public AuthResponse register(RegisterRequest request) {
+                Usuario user = Usuario.builder()
+                                .username(request.getUsername())
+                                .password(passwordEncoder.encode(request.getPassword()))
+                                .firstName(request.getFirstName())
+                                .lastName(request.lastName)
+                                .emailId(request.getEmailId())
+                                .role(Role.USER)
+                                .build();
 
-        userRepository.save(user);
+                userRepository.save(user);
 
-        return AuthResponse.builder()
-            .token(jwtService.getToken(user))
-            .build();
-        
-    }
+                return AuthResponse.builder()
+                                .token(jwtService.getToken(user))
+                                .build();
+
+        }
 
 }

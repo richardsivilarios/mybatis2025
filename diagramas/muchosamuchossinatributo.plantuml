@@ -1,0 +1,15 @@
+@startuml muchosamuchossinatributo
+class Estudiante {
+  + Long id
+  + String nombre
+  + String matricula
+}
+
+class Curso {
+  + Long id
+  + String nombre
+  + String codigo
+}
+
+Estudiante "*"--"*" Curso
+@enduml
