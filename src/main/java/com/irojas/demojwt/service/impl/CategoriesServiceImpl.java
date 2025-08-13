@@ -21,7 +21,9 @@ public class CategoriesServiceImpl implements CategoriesService {
         //return categoriesMapper.selectList(null);
         // select * from categories ORDER BY 
         // categoryid DESC
-        return categoriesMapper.selectList(new QueryWrapper<Categories>().eq("categoryname","Produce"));
+        //return categoriesMapper.selectList(new QueryWrapper<Categories>().eq("categoryname","Produce"));
+        //return categoriesMapper.selectList(new QueryWrapper<Categories>().orderByAsc("categoryName"));
+        return categoriesMapper.selectList(new QueryWrapper<Categories>().eq("categoryname","Condiments"));
 
     }
     @Override
