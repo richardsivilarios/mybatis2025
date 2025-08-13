@@ -19,8 +19,9 @@ public class CategoriesServiceImpl implements CategoriesService {
         // caso A mostrar las categorias 
         // select * from categories 
         //return categoriesMapper.selectList(null);
-        // select * from categories ORDER BY categoryid DESC
-        return categoriesMapper.selectList(new QueryWrapper<Categories>().orderByDesc("categoryid"));
+        // select * from categories ORDER BY 
+        // categoryid DESC
+        return categoriesMapper.selectList(new QueryWrapper<Categories>().eq("categoryname","Produce"));
 
     }
     @Override
