@@ -1,7 +1,9 @@
 package com.irojas.demojwt.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
 import com.irojas.demojwt.entity.Categories;
+
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
