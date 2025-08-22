@@ -18,6 +18,7 @@ public class VCategoriaProductoServiceImpl implements VCategoriaProductoService 
     private final VCategoriaProductoMapper vcategoriaproductoMapper;
     @Override
     public List<vcategoriaproducto> listar() {   
-         return vcategoriaproductoMapper.selectList(null);
+         return vcategoriaproductoMapper
+         .selectList(new QueryWrapper<vcategoriaproducto>().orderByAsc("price"));
 }
 }
