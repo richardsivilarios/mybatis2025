@@ -1,6 +1,4 @@
 package com.irojas.demojwt.service.impl;
-
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.irojas.demojwt.entity.Categories;
 import com.irojas.demojwt.mapper.CategoriesMapper;
 import com.irojas.demojwt.service.CategoriesService;
